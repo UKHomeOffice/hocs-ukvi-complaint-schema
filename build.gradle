@@ -9,7 +9,7 @@ def props = new Properties()
 file("version.properties").withInputStream {props.load(it) }
 
 group 'uk.gov.digital.ho.hocs'
-version props.getProperty("version")
+version artifactVersion
 
 repositories {
     mavenCentral()
