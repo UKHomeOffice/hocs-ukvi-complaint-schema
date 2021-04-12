@@ -8,7 +8,7 @@ steps:
   - name: build project
     image: quay.io/ukhomeofficedigital/openjdk11:v11.0.5_10
     commands:
-      - ./gradlew assemble --no-daemon
+      - ./gradlew assemble --no-daemon -PartifactVersion=${DRONE_COMMIT}
 
   - name: test project
     image: quay.io/ukhomeofficedigital/openjdk11:v11.0.5_10
