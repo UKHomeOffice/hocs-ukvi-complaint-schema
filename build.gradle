@@ -27,7 +27,7 @@ dependencies {
     implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
 }
 
-if (System.getenv('ARTIFACTORY_TOKEN') != null && System.getenv('ARTIFACTORY_URL')) {
+if (System.getenv('ARTIFACTORY_TOKEN') != null && System.getenv('ARTIFACTORY_URL') != null) {
     publishing {
         publications {
             hocsUkviComplaintSchema(MavenPublication) {
