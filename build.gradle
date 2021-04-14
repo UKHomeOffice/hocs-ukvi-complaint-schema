@@ -8,7 +8,10 @@ def repoToken = System.getenv('ARTIFACTORY_TOKEN')
 def repoUrl = System.getenv('ARTIFACTORY_URL')
 
 group 'uk.gov.digital.ho.hocs'
-version artifactVersion
+
+if (project.hasProperty('artifactVersion')) {
+    version artifactVersion
+}
 
 repositories {
     mavenCentral()

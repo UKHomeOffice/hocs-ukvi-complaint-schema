@@ -8,12 +8,12 @@ steps:
   - name: build project
     image: quay.io/ukhomeofficedigital/openjdk11:v11.0.5_10
     commands:
-      - ./gradlew assemble --no-daemon -PartifactVersion=${DRONE_COMMIT_SHA:0:8}
+      - ./gradlew assemble --no-daemon
 
   - name: test project
     image: quay.io/ukhomeofficedigital/openjdk11:v11.0.5_10
     commands:
-      - ./gradlew check --no-daemon -PartifactVersion=${DRONE_COMMIT_SHA:0:8}
+      - ./gradlew check --no-daemon
     depends_on:
       - build project
 
