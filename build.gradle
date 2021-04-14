@@ -27,20 +27,22 @@ dependencies {
     implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
 }
 
-publishing {
-    publications {
-        hocsUkviComplaintSchema(MavenPublication) {
-            from components.java
+if (System.getenv('ARTIFACTORY_TOKEN') != null && System.getenv('ARTIFACTORY_URL')) {
+    publishing {
+        publications {
+            hocsUkviComplaintSchema(MavenPublication) {
+                from components.java
+            }
         }
-    }
 
-    repositories {
-        maven {
-            name = 'hocs-ukvi-complaint-schema'
-            description = 'The JSON schema for the UKVI Complaints Management complaint schema'
-            url = ${repoUrl}
-            credentials {
-                password = ${repoToken} // Password or API Key
+        repositories {
+            maven {
+                name = 'hocs-ukvi-complaint-schema'
+                description = 'The JSON schema for the UKVI Complaints Management complaint schema'
+                url = $ { repoUrl }
+                credentials {
+                    password = $ { repoToken }
+                }
             }
         }
     }
