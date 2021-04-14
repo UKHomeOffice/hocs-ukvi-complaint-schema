@@ -3,6 +3,7 @@ plugins {
     id "io.freefair.lombok" version "5.3.0"
     id 'java-library'
     id 'maven-publish'
+    id "com.jfrog.artifactory" version "4.21.0"
 }
 def repoToken = System.getenv('ARTIFACTORY_TOKEN')
 def repoUrl = System.getenv('ARTIFACTORY_URL')
@@ -27,23 +28,17 @@ dependencies {
     implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
 }
 
-if (System.getenv('ARTIFACTORY_TOKEN') != null && System.getenv('ARTIFACTORY_URL') != null) {
-    publishing {
-        publications {
-            hocsUkviComplaintSchema(MavenPublication) {
-                from components.java
-            }
+artifactory {
+    contextUrl = 'https://artifactory.digital.homeoffice.gov.uk/artifactory'
+    publish {
+        repository { // PUBLISH access used by Drone - do not publish to artifactory for local working
+            repoKey = 'DECS'
+            username = System.env.ARTIFACTORY_USER
+            password = System.env.ARTIFACTORY_TOKEN
+            maven = true
         }
-
-        repositories {
-            maven {
-                name = 'hocs-ukvi-complaint-schema'
-                description = 'The JSON schema for the UKVI Complaints Management complaint schema'
-                url = $ { repoUrl }
-                credentials {
-                    password = $ { repoToken }
-                }
-            }
+        defaults {
+            publications ('mavenJava')
         }
     }
 }
