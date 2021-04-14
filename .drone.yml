@@ -36,10 +36,10 @@ steps:
     pull: if-not-exists
     image: quay.io/ukhomeofficedigital/java11-mvn:v3.5.4
     environment:
-      ARTIFACTORY_USERNAME:
-        from_secret: ARTIFACTORY_USERNAME
-      ARTIFACTORY_PASSWORD:
-        from_secret: ARTIFACTORY_PASSWORD
+      ARTIFACTORY_TOKEN:
+        from_secret: ARTIFACTORY_TOKEN
+      ARTIFACTORY_URL:
+        from_secret: ARTIFACTORY_URL
     commands:
       - ./gradlew publish -PartifactVersion=${DRONE_TAG}
     depends_on:

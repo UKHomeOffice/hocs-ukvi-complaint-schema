@@ -4,7 +4,8 @@ plugins {
     id 'java-library'
     id 'maven-publish'
 }
-
+def repoToken = System.getenv('ARTIFACTORY_TOKEN')
+def repoUrl = System.getenv('ARTIFACTORY_URL')
 def props = new Properties()
 file("version.properties").withInputStream {props.load(it) }
 
@@ -36,11 +37,10 @@ publishing {
         maven {
             name = 'hocs-ukvi-complaint-schema'
             description = 'The JSON schema for the UKVI Complaints Management complaint schema'
-            url = "file://${buildDir}/repo"
-//            credentials {
-//                username = "myusername" // Artifactory user name
-//                password = "mypasswordorapikey" // Password or API Key
-//            }
+            url = ${repoUrl}
+            credentials {
+                password = ${repoToken} // Password or API Key
+            }
         }
     }
 }
