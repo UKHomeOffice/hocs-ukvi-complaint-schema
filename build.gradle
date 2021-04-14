@@ -6,8 +6,6 @@ plugins {
 }
 def repoToken = System.getenv('ARTIFACTORY_TOKEN')
 def repoUrl = System.getenv('ARTIFACTORY_URL')
-def props = new Properties()
-file("version.properties").withInputStream {props.load(it) }
 
 group 'uk.gov.digital.ho.hocs'
 version artifactVersion
