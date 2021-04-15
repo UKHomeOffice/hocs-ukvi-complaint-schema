@@ -5,8 +5,6 @@ plugins {
     id 'maven-publish'
     id "com.jfrog.artifactory" version "4.21.0"
 }
-def repoToken = System.getenv('ARTIFACTORY_TOKEN')
-def repoUrl = System.getenv('ARTIFACTORY_URL')
 
 group 'uk.gov.digital.ho.hocs'
 
