@@ -43,7 +43,7 @@ steps:
       ARTIFACTORY_URL:
         from_secret: ARTIFACTORY_URL
     commands:
-      - ./gradlew artifactoryPublish -PartifactVersion=${DRONE_TAG}
+      - ./gradlew publish -PartifactVersion=${DRONE_TAG}
     depends_on:
       - test project
 
