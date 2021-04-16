@@ -29,6 +29,7 @@ publishing {
     publications {
         hocsUkviComplaintSchema(MavenPublication) {
             from components.java
+            artifactId = 'hocs-ukvi-complaint-schema'
         }
     }
 
