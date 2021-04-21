@@ -39,8 +39,6 @@ steps:
         from_secret: ARTIFACTORY_USER
     commands:
       - ./gradlew publish -PartifactVersion=${DRONE_TAG}
-    depends_on:
-      - test project
 
 depends_on:
 - build
