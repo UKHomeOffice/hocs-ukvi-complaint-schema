@@ -3,7 +3,6 @@ package uk.gov.digital.ho.hocs.correspondence;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.networknt.schema.*;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -13,7 +12,6 @@ import java.util.Set;
 
 import static org.junit.Assert.*;
 
-@Slf4j
 public class JSONValidate {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -269,7 +267,7 @@ public class JSONValidate {
             assertTrue(jsonBytes.length < 256000);
         } else {
             for (ValidationMessage validationMessage : validationResult) {
-                log.info(validationMessage.getMessage());
+                System.out.println(validationMessage.getMessage());
             }
             fail();
         }
