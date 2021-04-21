@@ -26,8 +26,6 @@ trigger:
 kind: pipeline
 type: kubernetes
 name: publish
-depends_on:
-    - build
 
 steps:
 
@@ -41,8 +39,9 @@ steps:
         from_secret: ARTIFACTORY_USER
     commands:
       - ./gradlew publish -PartifactVersion=${DRONE_TAG}
-    depends_on:
-      - test project
+
+depends_on:
+- build
 
 trigger:
   event:
