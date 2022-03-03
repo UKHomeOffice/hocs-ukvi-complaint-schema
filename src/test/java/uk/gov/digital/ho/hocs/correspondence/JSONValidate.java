@@ -28,6 +28,16 @@ public class JSONValidate {
     }
 
     @Test
+    public void review() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/review.json")
+        ) {
+            testSchemaValid(schemaStream, jsonStream);
+        }
+    }
+
+    @Test
     public void existingOther() throws Exception {
         try (
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
@@ -153,6 +163,16 @@ public class JSONValidate {
         try (
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/maxSize/existing.json")
+        ) {
+            testSchemaValid(schemaStream, jsonStream);
+        }
+    }
+
+    @Test
+    public void reviewMaxSize() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/maxSize/review.json")
         ) {
             testSchemaValid(schemaStream, jsonStream);
         }
