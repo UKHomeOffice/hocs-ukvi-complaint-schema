@@ -1,0 +1,20 @@
+{
+  "creationDate": "1952-02-17",
+  "complaint": {
+    "complaintType": "REVIEW",
+    "reporterDetails": {
+      "applicantType": "APPLICANT",
+      "applicantName": "occaecat minim",
+      "applicantNationality": "Guatemala",
+      "applicantDob": "2020-10-03",
+      "applicantEmail": "abc@uevptde.com",
+      "applicantPhone": "01632 960000"
+    },
+    "complaintDetails": {
+      "complaintText": "occaecat proident labore dolor sunt",
+      "previousComplaint": {
+        "complaintReferenceNumber": "id"
+      }
+    }
+  }
+}
