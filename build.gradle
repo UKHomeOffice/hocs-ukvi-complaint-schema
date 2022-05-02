@@ -15,8 +15,7 @@ repositories {
     mavenCentral()
 }
 
-sourceCompatibility = '11'
-targetCompatibility = '11'
+sourceCompatibility = JavaVersion.VERSION_17
 
 dependencies {
     implementation 'junit:junit:4.12'
@@ -44,4 +43,3 @@ publishing {
         }
     }
 }
-
