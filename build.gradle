@@ -42,5 +42,14 @@ publishing {
                 password = System.getenv('ARTIFACTORY_TOKEN')
             }
         }
+        maven {
+            name = "hocs-ukvi-complaint-schema"
+            description = 'The JSON schema for the UKVI Complaints Management complaint schema'
+            url = 'https://maven.pkg.github.com/UKHomeOffice/hocs-ukvi-complaint-schema'
+            credentials {
+                username = "Anonymous"
+                password = System.getenv("PACKAGE_TOKEN")
+            }
+        }
     }
 }
