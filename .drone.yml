@@ -1,37 +1,32 @@
 ---
-
 kind: pipeline
 type: kubernetes
 name: build
-
-steps:
-  - name: build project
-    image: quay.io/ukhomeofficedigital/openjdk11:v11.0.5_10
-    commands:
-      - ./gradlew assemble --no-daemon
-
-  - name: test project
-    image: quay.io/ukhomeofficedigital/openjdk11:v11.0.5_10
-    commands:
-      - ./gradlew check --no-daemon
-    depends_on:
-      - build project
-
 trigger:
   event:
     - push
     - tag
 
+steps:
+  - name: test project
+    image: quay.io/ukhomeofficedigital/hocs-base-image-build
+    commands:
+      - ./gradlew clean build --no-daemon
+
 ---
 kind: pipeline
 type: kubernetes
 name: publish
+trigger:
+  event:
+    - tag
+depends_on:
+  - build
 
 steps:
-
   - name: publish
     pull: if-not-exists
-    image: quay.io/ukhomeofficedigital/java11-mvn:v3.5.4
+    image: maven:3.8.3-openjdk-17
     environment:
       ARTIFACTORY_TOKEN:
         from_secret: ARTIFACTORY_TOKEN
@@ -41,11 +36,3 @@ steps:
         from_secret: PACKAGE_TOKEN
     commands:
       - ./gradlew publish -PartifactVersion=${DRONE_TAG}
-
-depends_on:
-- build
-
-trigger:
-  event:
-    - tag
-...
