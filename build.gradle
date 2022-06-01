@@ -33,15 +33,6 @@ publishing {
 
     repositories {
         maven {
-            name = 'hocs-ukvi-complaint-schema'
-            description = 'The JSON schema for the UKVI Complaints Management complaint schema'
-            url = 'https://artifactory.digital.homeoffice.gov.uk/artifactory/DECS/'
-            credentials {
-                username = System.getenv('ARTIFACTORY_USER')
-                password = System.getenv('ARTIFACTORY_TOKEN')
-            }
-        }
-        maven {
             name = "hocs-ukvi-complaint-schema"
             description = 'The JSON schema for the UKVI Complaints Management complaint schema'
             url = 'https://maven.pkg.github.com/UKHomeOffice/hocs-ukvi-complaint-schema'

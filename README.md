@@ -7,7 +7,7 @@ This is a [useful site for generating JSON from JSON schema](https://json-schema
 
 ## Publishing
 
-When the repository is tagged this schema is currently published to both Artifactory and GitHub Packages.
+When the repository is tagged this schema is currently published to GitHub Packages.
 
 View the `.drone.yml` file for more information on the commands used in the pipeline and when this is triggered.
 
