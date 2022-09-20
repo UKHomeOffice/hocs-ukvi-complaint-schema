@@ -1,7 +1,7 @@
 {
   "creationDate": "1995-05-15",
   "complaint": {
-    "complaintType": "DELAYS",
+    "complaintType": "WAITING_FOR_DECISION_OR_DOCUMENT",
     "reference": {
       "referenceType": "HO_REF",
       "reference": "amet"
