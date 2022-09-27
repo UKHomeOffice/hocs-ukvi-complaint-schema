@@ -23,7 +23,8 @@
       "complaintText": "in ex ut ipsum dolor",
       "refundRequested": "YES",
       "applicationLocation": "INSIDE_UK",
-      "refundType": "STANDARD"
+      "refundType": "STANDARD",
+      "refundWhen": "MORE_THAN_SIX_WEEKS"
     }
   }
 }
