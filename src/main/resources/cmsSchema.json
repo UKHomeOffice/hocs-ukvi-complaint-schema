@@ -315,7 +315,6 @@
         "SUBMITTING_APPLICATION",
         "MAKING_APPOINTMENT",
         "EXISTING",
-        "REVIEW",
         "DELAYS",
         "IMMIGRATION_DECISION",
         "IMMIGRATION_STATUS_CHANGE",
@@ -878,41 +877,6 @@
         }
       }
     },
-    "ComplaintReview": {
-      "type": "object",
-      "required": [
-        "complaintType",
-        "complaintDetails"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "complaintType": {
-          "type": "string",
-          "enum": [
-            "REVIEW"
-          ]
-        },
-        "reporterDetails": {
-          "$ref": "#/definitions/ReporterDetails"
-        },
-        "complaintDetails": {
-          "type": "object",
-          "required": [
-            "previousComplaint",
-            "complaintText"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "previousComplaint": {
-              "$ref": "#/definitions/PreviousComplaintType"
-            },
-            "complaintText": {
-              "$ref": "#/definitions/ComplaintDetailsText"
-            }
-          }
-        }
-      }
-    },
     "SomethingElseComplaint": {
       "type": "object",
       "required": [
@@ -979,9 +943,6 @@
         },
         {
           "$ref": "#/definitions/ExistingComplaint"
-        },
-        {
-          "$ref": "#/definitions/ComplaintReview"
         },
         {
           "$ref": "#/definitions/SomethingElseComplaint"
