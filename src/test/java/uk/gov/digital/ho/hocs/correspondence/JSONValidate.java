@@ -48,16 +48,6 @@ public class JSONValidate {
     }
 
     @Test
-    public void poorInformation() throws Exception {
-        try (
-                InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
-                InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/poorInformation.json")
-        ) {
-            testSchemaValid(schemaStream, jsonStream);
-        }
-    }
-
-    @Test
     public void biometric() throws Exception {
         try (
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
@@ -173,16 +163,6 @@ public class JSONValidate {
         try (
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/maxSize/makingAppointment.json")
-        ) {
-            testSchemaValid(schemaStream, jsonStream);
-        }
-    }
-
-    @Test
-    public void poorInformationMaxSize() throws Exception {
-        try (
-                InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
-                InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/maxSize/poorInformation.json")
         ) {
             testSchemaValid(schemaStream, jsonStream);
         }

@@ -317,7 +317,6 @@
         "EXISTING",
         "DELAYS",
         "IMMIGRATION_DECISION",
-        "IMMIGRATION_STATUS_CHANGE",
         "BIOMETRIC_RESIDENCE_PERMIT",
         "REFUND",
         "POOR_INFORMATION_OR_STAFF_BEHAVIOUR",
@@ -758,41 +757,6 @@
         }
       }
     },
-    "InformationIssueComplaint": {
-      "type": "object",
-      "required": [
-        "complaintType",
-        "reporterDetails",
-        "complaintDetails"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "complaintType": {
-          "type": "string",
-          "enum": [
-            "POOR_INFORMATION"
-          ]
-        },
-        "reference": {
-          "$ref": "#/definitions/Reference"
-        },
-        "reporterDetails": {
-          "$ref": "#/definitions/ReporterDetails"
-        },
-        "complaintDetails": {
-          "type": "object",
-          "required": [
-            "complaintText"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "complaintText": {
-              "$ref": "#/definitions/ComplaintDetailsText"
-            }
-          }
-        }
-      }
-    },
     "StaffBehaviourComplaint": {
       "type": "object",
       "required": [
@@ -805,7 +769,7 @@
         "complaintType": {
           "type": "string",
           "enum": [
-            "POOR_STAFF_BEHAVIOUR"
+            "POOR_INFORMATION_OR_STAFF_BEHAVIOUR"
           ]
         },
         "reference": {
@@ -934,9 +898,6 @@
         },
         {
           "$ref": "#/definitions/BrpComplaint"
-        },
-        {
-          "$ref": "#/definitions/InformationIssueComplaint"
         },
         {
           "$ref": "#/definitions/StaffBehaviourComplaint"
