@@ -5,4 +5,4 @@ on:
 
 jobs:
   tag:
-    uses: UKHomeOffice/sas-github-workflows/.github/workflows/publish-maven.yml@v1
+    uses: UKHomeOffice/sas-github-workflows/.github/workflows/publish-maven.yml@v2
